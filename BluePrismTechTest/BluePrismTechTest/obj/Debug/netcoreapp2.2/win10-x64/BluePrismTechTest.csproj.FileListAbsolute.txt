@@ -1,0 +1,15 @@
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\appsettings.json
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\words-english.txt
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\hostpolicy.dll
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\hostfxr.dll
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.exe
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.deps.json
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.runtimeconfig.json
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.runtimeconfig.dev.json
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.dll
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\bin\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.pdb
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\obj\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.csprojAssemblyReference.cache
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\obj\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.AssemblyInfoInputs.cache
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\obj\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.AssemblyInfo.cs
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\obj\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.dll
+C:\Users\callum.johnson\Source\Repos\BluePrismTechTest\BluePrismTechTest\obj\Debug\netcoreapp2.2\win10-x64\BluePrismTechTest.pdb

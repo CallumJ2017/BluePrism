@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BluePrismTechTest": {
+      "commandName": "Project",
+      "commandLineArgs": "\"words-english.txt\" \"wino\" \"wish\" \"output.txt\""
+    }
+  }
+}
