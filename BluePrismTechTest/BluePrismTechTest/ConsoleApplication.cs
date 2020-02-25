@@ -14,11 +14,11 @@ namespace BluePrismTechTest
 			_dictionaryService = dictionaryService;
 		}
 
-		// Application starting point
-		public void Run(string dictionaryFile, string startWord, string endWord, string outputFile)
+		public void Run(string dictionaryFile, string startWord, string endWord, string outputFile, int length)
 		{
-			_dictionaryService.ReadTextFile(dictionaryFile);
-			_dictionaryService.Start(startWord, endWord);
+			var dictionary = _dictionaryService.ReadTextFile(dictionaryFile);
+			dictionary = _dictionaryService.GetWordsOfLength(length, dictionary);
+			_dictionaryService.Start(startWord, endWord, dictionary);
 		}
 	}
 }

@@ -7,6 +7,8 @@ namespace BluePrismTechTest
 {
 	class Program
 	{
+		private const int WordLength = 4;
+
 		static int Main(string[] args)
 		{
 			// Set up varibales to hold the command line arguments.
@@ -57,7 +59,7 @@ namespace BluePrismTechTest
 
 			// Generate a provider
 			var serviceProvider = services.BuildServiceProvider();
-			serviceProvider.GetService<ConsoleApplication>().Run(dictionaryFile, startWord, endWord, outputFile);
+			serviceProvider.GetService<ConsoleApplication>().Run(dictionaryFile, startWord, endWord, outputFile, WordLength);
 
 			return 0;
 		}
@@ -73,18 +75,13 @@ namespace BluePrismTechTest
 			services.AddSingleton(config);
 			services.AddTransient<IDictionaryService, DictionaryService>();
 
-			// IMPORTANT! Register our application entry point
 			services.AddTransient<ConsoleApplication>();
 			return services;
 		}
 
 		public static IConfiguration LoadConfiguration()
 		{
-			var builder = new ConfigurationBuilder()
-				.SetBasePath(Directory.GetCurrentDirectory())
-				.AddJsonFile("appsettings.json", optional: true,
-							 reloadOnChange: true);
-			return builder.Build();
+			return new ConfigurationBuilder().Build();
 		}
 	}
 }

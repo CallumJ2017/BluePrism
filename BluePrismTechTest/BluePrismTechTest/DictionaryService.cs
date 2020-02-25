@@ -13,33 +13,40 @@ namespace BluePrismTechTest
 		private static List<List<string>> treeList = new List<List<string>>();
 		private static Queue<string> visitedWords = new Queue<string>();
 		private static List<string> textFileList = new List<string>();
-		private int Levels = 0;
 
 		public DictionaryService(IConfiguration configuration)
 		{
 			_configuration = configuration;
 		}
 
-		public void ReadTextFile(string dictionaryFile)
+		public DictionaryService()
 		{
-			// Read in only the words that are 4 characters in length.
-			textFileList = File.ReadAllLines(dictionaryFile).Where(word => word.Length == 4).ToList();
+		}
+
+		public List<string> ReadTextFile(string dictionaryFile)
+		{
+			// Read the whole text file.
+			textFileList = File.ReadAllLines(dictionaryFile).ToList();
 
 			// Sort the list alphabetically.
 			textFileList.Sort();
-				
-			foreach (var item in textFileList)
-			{
-				Console.WriteLine(item);
-			}
+
+			return textFileList;
+		}
+		public List<string> GetWordsOfLength(int number, List<string> dictionary)
+		{
+			// Get only the word of a certain length.
+			return dictionary.Where(word => word.Length == number).ToList();
 		}
 
-		public List<string> ListOfOneCharcaterDifferentWords(string prevWord)
+		public List<string> ListOfOneCharcaterDifferentWords(string prevWord, List<string> dictionary)
 		{
 			List<string> tempList = new List<string>();
 
-			foreach (var word in textFileList)
+			foreach (var word in dictionary)
 			{
+				// Check if the prev word and word differ by one character.
+				// If so add them to the list.
 				if (prevWord.Where((i, j) => word[j] != i).Count() == 1)
 				{
 					tempList.Add(word);
@@ -48,19 +55,29 @@ namespace BluePrismTechTest
 			return tempList;
 		}
 
-		public void Start(string startWord, string endWord)
+		public void Start(string startWord, string endWord, List<string> dictionary)
 		{
-			if(!textFileList.Contains(endWord))
+			if (!WordExistsInDictionary(startWord, textFileList))
 			{
-				Console.WriteLine("The end word does not exist in the text file");
+				Console.WriteLine("Sorry, start word not found in dictionary.");
 				Console.ReadKey();
 				return;
 			}
-
-			BuildTree(startWord, endWord);
+			if (!WordExistsInDictionary(endWord, textFileList))
+			{
+				Console.WriteLine("Sorry, end word not found in dictionary.");
+				Console.ReadKey();
+				return;
+			}
+			BuildTree(startWord, endWord, dictionary);
 		}
 
-		public void BuildTree(string startWord, string endWord)
+		public bool WordExistsInDictionary(string word, List<string> dictionary)
+		{
+			return dictionary.Contains(word);
+		}
+
+		public void BuildTree(string startWord, string endWord, List<string> dictionary)
 		{
 			while (true)
 			{
@@ -68,7 +85,7 @@ namespace BluePrismTechTest
 				List<string> tempListTwo = new List<string>();
 
 				tempList.Add(endWord);
-				tempListTwo = ListOfOneCharcaterDifferentWords(endWord);
+				tempListTwo = ListOfOneCharcaterDifferentWords(endWord, dictionary);
 
 				foreach (var word in tempListTwo)
 				{

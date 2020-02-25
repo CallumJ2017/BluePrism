@@ -1206,23 +1206,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Callum\\.nuget\\packages\\": {},
+    "C:\\Users\\callum.johnson\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Callum\\Desktop\\BluePrism\\BluePrismTechTest\\BluePrismTechTest\\BluePrismTechTest.csproj",
+      "projectUniqueName": "C:\\Users\\callum.johnson\\Source\\Repos\\BluePrism\\BluePrismTechTest\\BluePrismTechTest\\BluePrismTechTest.csproj",
       "projectName": "BluePrismTechTest",
-      "projectPath": "C:\\Users\\Callum\\Desktop\\BluePrism\\BluePrismTechTest\\BluePrismTechTest\\BluePrismTechTest.csproj",
-      "packagesPath": "C:\\Users\\Callum\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Callum\\Desktop\\BluePrism\\BluePrismTechTest\\BluePrismTechTest\\obj\\",
+      "projectPath": "C:\\Users\\callum.johnson\\Source\\Repos\\BluePrism\\BluePrismTechTest\\BluePrismTechTest\\BluePrismTechTest.csproj",
+      "packagesPath": "C:\\Users\\callum.johnson\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\callum.johnson\\Source\\Repos\\BluePrism\\BluePrismTechTest\\BluePrismTechTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Callum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\callum.johnson\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1270,16 +1270,10 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
-        "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "warn": true
       }
     }
   }
