@@ -74,6 +74,7 @@ namespace BluePrismTechTest
 			// Add the config to our DI container for later user
 			services.AddSingleton(config);
 			services.AddTransient<IDictionaryService, DictionaryService>();
+			services.AddTransient<IFileHandler, FileHandler>();
 
 			services.AddTransient<ConsoleApplication>();
 			return services;

@@ -2,7 +2,7 @@
   "profiles": {
     "BluePrismTechTest": {
       "commandName": "Project",
-      "commandLineArgs": "\"words-english.txt\" \"wino\" \"wish\" \"output.txt\""
+      "commandLineArgs": "\"words-english.txt\" \"wish\" \"wino\" \"output.txt\""
     }
   }
 }

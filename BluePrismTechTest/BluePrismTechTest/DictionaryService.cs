@@ -1,7 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -9,28 +7,11 @@ namespace BluePrismTechTest
 {
 	public class DictionaryService : IDictionaryService
 	{
-		private readonly IConfiguration _configuration;
 		private static List<List<string>> treeList = new List<List<string>>();
 		private static List<string> textFileList = new List<string>();
 
-		public DictionaryService(IConfiguration configuration)
-		{
-			_configuration = configuration;
-		}
-
 		public DictionaryService()
 		{
-		}
-
-		public List<string> ReadTextFile(string dictionaryFile)
-		{
-			// Read the whole text file.
-			textFileList = File.ReadAllLines(dictionaryFile).ToList();
-
-			// Sort the list alphabetically.
-			textFileList.Sort();
-
-			return textFileList;
 		}
 
 		public Dictionary<string, List<string>> GetWordsOfLength(int number, List<string> dictionary)
@@ -64,8 +45,10 @@ namespace BluePrismTechTest
 			return tempList;
 		}
 
-		public void Start(string startWord, string endWord, Dictionary<string, List<string>> dictionary)
+		public void Start(string startWord, string endWord, Dictionary<string, List<string>> dictionary, List<string> textFile)
 		{
+			textFileList = textFile;
+
 			if (!WordExistsInDictionary(startWord, textFileList))
 			{
 				Console.WriteLine("Sorry, start word not found in dictionary.");
@@ -79,7 +62,7 @@ namespace BluePrismTechTest
 				return;
 			}
 
-			var result = FindLadders(startWord, endWord, textFileList);
+			var result = FindPaths(startWord, endWord, textFileList);
 
 			foreach (var obj in result.FirstOrDefault())
 			{
@@ -88,7 +71,7 @@ namespace BluePrismTechTest
 			Console.ReadKey();
 		}
 
-		public List<List<string>> FindLadders(string startWord, string endWord, List<string> wordList)
+		public List<List<string>> FindPaths(string startWord, string endWord, List<string> wordList)
 		{
 			var graph = new Dictionary<string, List<string>>();
 
@@ -106,7 +89,6 @@ namespace BluePrismTechTest
 			var shortestPaths = new Dictionary<string, List<List<string>>>();
 
 			queue.Enqueue(startWord);
-			// do not confuse () with {} - fix compiler error
 			shortestPaths[startWord] = new List<List<string>>() { new List<string>() { startWord } };
 
 			var visited = new List<string>();
@@ -159,8 +141,8 @@ namespace BluePrismTechTest
 							if (!shortestPaths.ContainsKey(neighbor))
 							{
 								shortestPaths[neighbor] = new List<List<string>>() { newPath };
-							}        // reasoning ? 
-							else if (shortestPaths[neighbor][0].Count >= newPath.Count) // // we are interested in shortest paths only
+							} 
+							else if (shortestPaths[neighbor][0].Count >= newPath.Count)
 							{
 								shortestPaths[neighbor].Add(newPath);
 							}
@@ -177,7 +159,7 @@ namespace BluePrismTechTest
 			return dictionary.Contains(word);
 		}
 
-		public void BuildTree(string word, Dictionary<string, List<string>> graph)
+		public void BuildTree(string word, Dictionary<string, List<string>> tree)
 		{
 			for (int i = 0; i < word.Length; i++)
 			{
@@ -186,15 +168,15 @@ namespace BluePrismTechTest
 
 				var key = sb.ToString();
 
-				if (graph.ContainsKey(key))
+				if (tree.ContainsKey(key))
 				{
-					graph[key].Add(word);
+					tree[key].Add(word);
 				}
 				else
 				{
 					var set = new List<string>();
 					set.Add(word);
-					graph[key] = set;
+					tree[key] = set;
 				}
 			}
 		}
