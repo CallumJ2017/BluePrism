@@ -11,7 +11,6 @@ namespace BluePrismTechTest
 	{
 		private readonly IConfiguration _configuration;
 		private static List<List<string>> treeList = new List<List<string>>();
-		private static Queue<string> visitedWords = new Queue<string>();
 		private static List<string> textFileList = new List<string>();
 
 		public DictionaryService(IConfiguration configuration)
@@ -33,10 +32,20 @@ namespace BluePrismTechTest
 
 			return textFileList;
 		}
-		public List<string> GetWordsOfLength(int number, List<string> dictionary)
+
+		public Dictionary<string, List<string>> GetWordsOfLength(int number, List<string> dictionary)
 		{
+			Dictionary<string, List<string>> temp = new Dictionary<string, List<string>>();
+			
 			// Get only the word of a certain length.
-			return dictionary.Where(word => word.Length == number).ToList();
+			foreach(var word in dictionary)
+			{
+				if(word.Length == 4)
+				{
+					temp.Add(word, dictionary);
+				}
+			}
+			return temp;
 		}
 
 		public List<string> ListOfOneCharcaterDifferentWords(string prevWord, List<string> dictionary)
@@ -55,7 +64,7 @@ namespace BluePrismTechTest
 			return tempList;
 		}
 
-		public void Start(string startWord, string endWord, List<string> dictionary)
+		public void Start(string startWord, string endWord, Dictionary<string, List<string>> dictionary)
 		{
 			if (!WordExistsInDictionary(startWord, textFileList))
 			{
@@ -69,7 +78,98 @@ namespace BluePrismTechTest
 				Console.ReadKey();
 				return;
 			}
-			BuildTree(startWord, endWord, dictionary);
+
+			var result = FindLadders(startWord, endWord, textFileList);
+
+			foreach (var obj in result.FirstOrDefault())
+			{
+				Console.WriteLine(obj);
+			}
+			Console.ReadKey();
+		}
+
+		public List<List<string>> FindLadders(string startWord, string endWord, List<string> wordList)
+		{
+			var graph = new Dictionary<string, List<string>>();
+
+			BuildTree(startWord, graph);
+
+			foreach (var word in wordList)
+			{
+				BuildTree(word, graph);
+			}
+
+			//Queue For BFS
+			var queue = new Queue<string>();
+
+			//Dictionary to store shortest paths to a word
+			var shortestPaths = new Dictionary<string, List<List<string>>>();
+
+			queue.Enqueue(startWord);
+			// do not confuse () with {} - fix compiler error
+			shortestPaths[startWord] = new List<List<string>>() { new List<string>() { startWord } };
+
+			var visited = new List<string>();
+
+			while (queue.Count > 0)
+			{
+				var visit = queue.Dequeue();
+
+				//we can terminate loop once we reached the endWord as all paths leads here already visited in previous level 
+				if (visit.Equals(endWord))
+				{
+					return shortestPaths[endWord];
+				}
+
+				if (visited.Contains(visit))
+				{
+					continue;
+				}
+
+				visited.Add(visit);
+
+				for (int i = 0; i < visit.Length; i++)
+				{
+					var sb = new StringBuilder(visit);
+
+					sb[i] = '*';
+
+					var key = sb.ToString();
+
+					if (!graph.ContainsKey(key))
+					{
+						continue;
+					}
+
+					//brute force all adjacent words
+					foreach (var neighbor in graph[key])
+					{
+						if (visited.Contains(neighbor))
+						{
+							continue;
+						}
+
+						//fetch all paths leads current word to generate paths to adjacent/child node 
+						foreach (var path in shortestPaths[visit])
+						{
+							var newPath = new List<string>(path);
+
+							newPath.Add(neighbor); // path increments one, before it is saved in shortestPaths
+
+							if (!shortestPaths.ContainsKey(neighbor))
+							{
+								shortestPaths[neighbor] = new List<List<string>>() { newPath };
+							}        // reasoning ? 
+							else if (shortestPaths[neighbor][0].Count >= newPath.Count) // // we are interested in shortest paths only
+							{
+								shortestPaths[neighbor].Add(newPath);
+							}
+						}
+						queue.Enqueue(neighbor);
+					}
+				}
+			}
+			return new List<List<string>>();
 		}
 
 		public bool WordExistsInDictionary(string word, List<string> dictionary)
@@ -77,26 +177,25 @@ namespace BluePrismTechTest
 			return dictionary.Contains(word);
 		}
 
-		public void BuildTree(string startWord, string endWord, List<string> dictionary)
+		public void BuildTree(string word, Dictionary<string, List<string>> graph)
 		{
-			while (true)
+			for (int i = 0; i < word.Length; i++)
 			{
-				List<string> tempList = new List<string>();
-				List<string> tempListTwo = new List<string>();
+				var sb = new StringBuilder(word);
+				sb[i] = '*';
 
-				tempList.Add(endWord);
-				tempListTwo = ListOfOneCharcaterDifferentWords(endWord, dictionary);
+				var key = sb.ToString();
 
-				foreach (var word in tempListTwo)
+				if (graph.ContainsKey(key))
 				{
-					List<string> temp = new List<string>();
-					temp.Add(endWord);
-					temp.Add(word);
-					treeList.Add(temp);
-					visitedWords.Enqueue(word);
+					graph[key].Add(word);
 				}
-				endWord = visitedWords.First();
-				visitedWords.Dequeue().First();
+				else
+				{
+					var set = new List<string>();
+					set.Add(word);
+					graph[key] = set;
+				}
 			}
 		}
 	}

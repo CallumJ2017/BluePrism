@@ -17,8 +17,8 @@ namespace BluePrismTechTest
 		public void Run(string dictionaryFile, string startWord, string endWord, string outputFile, int length)
 		{
 			var dictionary = _dictionaryService.ReadTextFile(dictionaryFile);
-			dictionary = _dictionaryService.GetWordsOfLength(length, dictionary);
-			_dictionaryService.Start(startWord, endWord, dictionary);
+			var dictionaryTwo = _dictionaryService.GetWordsOfLength(length, dictionary);
+			_dictionaryService.Start(startWord, endWord, dictionaryTwo);
 		}
 	}
 }

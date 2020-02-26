@@ -1,3 +1,6 @@
+C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.csproj.CoreCompileInputs.cache
+C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.AssemblyInfoInputs.cache
+C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.AssemblyInfo.cs
 C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\bin\Debug\netcoreapp2.2\words-english.txt
 C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
@@ -10,9 +13,6 @@ C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTe
 C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\bin\Debug\netcoreapp2.2\BluePrismTechTest.dll
 C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\bin\Debug\netcoreapp2.2\BluePrismTechTest.pdb
 C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.csprojAssemblyReference.cache
-C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.csproj.CoreCompileInputs.cache
-C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.AssemblyInfoInputs.cache
-C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.AssemblyInfo.cs
 C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.csproj.CopyComplete
 C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.dll
 C:\Users\callum.johnson\Source\Repos\BluePrism\BluePrismTechTest\BluePrismTechTest.Tests\obj\Debug\netcoreapp2.2\BluePrismTechTest.Tests.pdb

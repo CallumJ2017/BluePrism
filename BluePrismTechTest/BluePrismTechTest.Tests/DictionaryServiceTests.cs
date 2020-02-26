@@ -41,19 +41,20 @@ namespace BluePrismTechTest.Tests
 			Assert.IsTrue(result);
 		}
 
-		[TestMethod]
-		public void Reads_Only_FourCharacter_Words()
-		{
-			// Arrange
-			List<string> actual = cut.GetWordsOfLength(4, dictionary);
+		//[TestMethod]
+		//[Ignore]
+		//public void Reads_Only_FourCharacter_Words()
+		//{
+		//	// Arrange
+		//	List<string> actual = cut.GetWordsOfLength(4, dictionary);
 
-			int expected = 2;
+		//	int expected = 2;
 
-			// Assert
-			Assert.AreEqual(expected, actual.Count(), "Not all words read in are 4 characters");
-			Assert.IsTrue(actual.Contains("baby"));
-			Assert.IsTrue(actual.Contains("babe"));
-		}
+		//	// Assert
+		//	Assert.AreEqual(expected, actual.Count(), "Not all words read in are 4 characters");
+		//	Assert.IsTrue(actual.Contains("baby"));
+		//	Assert.IsTrue(actual.Contains("babe"));
+		//}
 
 		[TestMethod]
 		[Ignore]
